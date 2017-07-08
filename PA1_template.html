@@ -121,6 +121,8 @@ $(document).ready(function () {
 
 <div id="load-necessary-packages" class="section level1">
 <h1>Load necessary packages</h1>
+<pre class="r"><code>library(readr)
+library(dplyr)</code></pre>
 <pre><code>## 
 ## Attaching package: 'dplyr'</code></pre>
 <pre><code>## The following objects are masked from 'package:stats':
@@ -129,9 +131,24 @@ $(document).ready(function () {
 <pre><code>## The following objects are masked from 'package:base':
 ## 
 ##     intersect, setdiff, setequal, union</code></pre>
+<pre class="r"><code>library(tidyr)
+library(ggplot2)</code></pre>
 </div>
 <div id="loading-and-preprocessing-the-data" class="section level1">
 <h1>Loading and preprocessing the data</h1>
+<pre class="r"><code>setwd(&quot;/Users/chengliangdong/Desktop/Coursera/R/reproducibleResearch/project1/&quot;)
+
+if (!file.exists(&quot;active.zip&quot;)) {
+  download.file(&quot;https://d396qusza40orc.cloudfront.net/repdata%2Fdata%2Factivity.zip&quot;, destfile = &quot;active.zip&quot;)
+}
+
+if (!file.exists(&quot;activity.csv&quot;)) {
+  unzip(&quot;active.zip&quot;, exdir = &quot;.&quot;)
+}
+
+if (!exists(&quot;activityData&quot;)) {
+  activityData &lt;- read_csv(&quot;activity.csv&quot;, col_names = TRUE)
+}</code></pre>
 <pre><code>## Parsed with column specification:
 ## cols(
 ##   steps = col_integer(),
@@ -258,8 +275,8 @@ activityMissingByDay</code></pre>
 ##      &lt;int&gt;       &lt;dbl&gt;
 ## 1      835    206.1698</code></pre>
 </div>
-<div id="imputing-missing-values--" class="section level1">
-<h1>Imputing missing values ————————————————-</h1>
+<div id="imputing-missing-values" class="section level1">
+<h1>Imputing missing values</h1>
 <ol style="list-style-type: decimal">
 <li>Calculate and report the total number of missing values in the dataset</li>
 </ol>

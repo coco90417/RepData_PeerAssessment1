@@ -1,13 +1,7 @@
 
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
-
-
 # Load necessary packages 
 
-```{r echo=FALSE}
+```{r}
 library(readr)
 library(dplyr)
 library(tidyr)
@@ -16,7 +10,7 @@ library(ggplot2)
 
 # Loading and preprocessing the data 
 
-```{r echo=FALSE}
+```{r}
 setwd("/Users/chengliangdong/Desktop/Coursera/R/reproducibleResearch/project1/")
 
 if (!file.exists("active.zip")) {
@@ -109,7 +103,7 @@ activityData %>%
   filter(averageStep == max(averageStep))
 ```
 
-# Imputing missing values -------------------------------------------------
+# Imputing missing values 
 
 1. Calculate and report the total number of missing values in the dataset 
 
